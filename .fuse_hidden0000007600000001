@@ -1,8 +1,0 @@
-# Chromatin Network Retards Droplet Coalescence
-This is the repository of core scripts to set up Molecular Dynamics (MD) simulations detailed in the manuscript "Chromatin Network Retards Droplet Coalescence".
-
-* After setting up the [LAMMPS](https://lammps.sandia.gov/) (an open-source MD simulator). After downloading the standard LAMMPS pacakge, copy our custom modifications in [./src/lammps/](./src/lammps/) to the /src/ folder of LAMMPS and compile.
-
-* Execute [run.py](./run.py) and simulate the trajectory in [./sim/run00/](./sim/run00/).
-
-* An example simulated trajectory is provided in [./sim/example/](./sim/example/).
