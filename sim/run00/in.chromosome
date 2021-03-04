@@ -7,7 +7,7 @@ atom_style      full
 boundary        s   s   s
 special_bonds   fene 
 
-read_data	/nobackup1b/users/qiyf/project_nucleolus/swf/src/md/init_structure//data.genome
+read_data	../../src/md/init_structure//data.genome
 
 neighbor        0.4 bin
 neigh_modify    every 1 delay 1 one 4000
@@ -29,10 +29,10 @@ variable    	cutoffcp equal 2.00
 variable    	cutoffpp equal 2.00
 
 
-pair_style	hybrid/overlay table linear 10000 tanhlr/cut/ideals 6.0 /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//ideal_potential_autosome.txt /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//ideal_potential_Xi.txt 1.000 tanhlr/cut/domainab 6.0 3 46 /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/sim_file//bead_index.txt /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/sim_file//specific_ab_index.txt /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//specific_AB_potential.txt lj/cut 1.12
+pair_style	hybrid/overlay table linear 10000 tanhlr/cut/ideals 6.0 ../../src/md/energy_file//ideal_potential_autosome.txt ../../src/md/energy_file//ideal_potential_Xi.txt 1.000 tanhlr/cut/domainab 6.0 3 46 ../../src/md/sim_file//bead_index.txt ../../src/md/sim_file//specific_ab_index.txt ../../src/md/energy_file//specific_AB_potential.txt lj/cut 1.12
 pair_coeff      * *  tanhlr/cut/ideals     0.0  1.5  2.5
-include		/nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_p_include.txt
-include		/nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//intra_AB_and_homolog.txt
+include		../../src/md/energy_file//soft_core_p_include.txt
+include		../../src/md/energy_file//intra_AB_and_homolog.txt
 pair_coeff      1 8 lj/cut 1.0 ${sigmacp} 1.12
 pair_coeff      2 8 lj/cut 1.0 ${sigmacp} 1.12
 pair_coeff      3 8 lj/cut 1.0 ${sigmacp} 1.12
