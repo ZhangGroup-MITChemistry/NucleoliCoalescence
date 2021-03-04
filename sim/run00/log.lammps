@@ -1,0 +1,304 @@
+LAMMPS (5 Nov 2016)
+variable        rseed equal   4928459
+
+#  ----    Settings  ----
+variable        T   equal   1.0
+units           lj
+atom_style      full
+boundary        s   s   s
+special_bonds   fene
+
+read_data	/nobackup1b/users/qiyf/project_nucleolus/swf/src/md/init_structure//data.genome
+  orthogonal box = (-17.8636 -17.4284 -18.7466) to (18.4432 18.1088 17.6009)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  6606 atoms
+  scanning bonds ...
+  1 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  reading bonds ...
+  6060 bonds
+  reading angles ...
+  6014 angles
+  2 = max # of 1-2 neighbors
+  2 = max # of special neighbors
+
+neighbor        0.4 bin
+neigh_modify    every 1 delay 1 one 4000
+atom_modify     sort 0 0.0
+
+#   ----    Force Field     ----
+bond_style      fene
+bond_coeff      1 30.0 1.5 1.0 1.0
+angle_style     cosine/delta
+angle_coeff     1   2.0     180.0
+
+
+#   ----    Force Field     ----
+variable    	elipsoncp equal 1.80
+variable    	elipsonpp equal 1.80
+variable    	sigmacp equal 0.75
+variable    	sigmapp equal 0.50
+variable    	cutoffcp equal 2.00
+variable    	cutoffpp equal 2.00
+
+
+pair_style	hybrid/overlay table linear 10000 tanhlr/cut/ideals 6.0 /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//ideal_potential_autosome.txt /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//ideal_potential_Xi.txt 1.000 tanhlr/cut/domainab 6.0 3 46 /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/sim_file//bead_index.txt /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/sim_file//specific_ab_index.txt /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//specific_AB_potential.txt lj/cut 1.12
+pair_coeff      * *  tanhlr/cut/ideals     0.0  1.5  2.5
+include		/nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_p_include.txt
+pair_coeff         1    1 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         1    2 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         1    3 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         1    4 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         1    5 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         1    6 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         1    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         2    2 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         2    3 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         2    4 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         2    5 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         2    6 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         2    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         3    3 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         3    4 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         3    5 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         3    6 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         3    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         4    4 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         4    5 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         4    6 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         4    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         5    5 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         5    6 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         5    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         6    6 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         6    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+pair_coeff         7    7 table /nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//soft_core_lj_4kT.table soft_core_lj 1.12
+WARNING: 4174 of 10006 force values in table are inconsistent with -dE/dr.
+  Should only be flagged at inflection points (../pair_table.cpp:474)
+WARNING: 9976 of 10006 distance values in table with relative error
+  over 1e-06 to re-computed values (../pair_table.cpp:483)
+WARNING: 1 of 10006 lines in table were incomplete
+  or could not be parsed completely (../pair_table.cpp:492)
+include		/nobackup1b/users/qiyf/project_nucleolus/swf/src/md/energy_file//intra_AB_and_homolog.txt
+pair_coeff         1    1  tanhlr/cut/domainab        0.000000    -0.051915    -0.298190 1.50  2.50
+pair_coeff         1    2  tanhlr/cut/domainab        0.000000     0.032837    -0.082856 1.50  2.50
+pair_coeff         1    3  tanhlr/cut/domainab        0.000000    -0.015727    -0.171398 1.50  2.50
+pair_coeff         1    4  tanhlr/cut/domainab        0.000000     0.000000     0.000000 1.50  2.50
+pair_coeff         2    2  tanhlr/cut/domainab        0.000000    -0.071795    -0.168044 1.50  2.50
+pair_coeff         2    3  tanhlr/cut/domainab        0.000000    -0.063146    -0.262911 1.50  2.50
+pair_coeff         2    4  tanhlr/cut/domainab        0.000000     0.000000     0.000000 1.50  2.50
+pair_coeff         3    3  tanhlr/cut/domainab        0.000000    -0.350400    -0.463110 1.50  2.50
+pair_coeff         3    4  tanhlr/cut/domainab        0.000000     0.000000     0.000000 1.50  2.50
+pair_coeff         4    4  tanhlr/cut/domainab        0.000000     0.000000     0.000000 1.50  2.50
+pair_coeff      1 8 lj/cut 1.0 ${sigmacp} 1.12
+pair_coeff      1 8 lj/cut 1.0 0.75 1.12
+pair_coeff      2 8 lj/cut 1.0 ${sigmacp} 1.12
+pair_coeff      2 8 lj/cut 1.0 0.75 1.12
+pair_coeff      3 8 lj/cut 1.0 ${sigmacp} 1.12
+pair_coeff      3 8 lj/cut 1.0 0.75 1.12
+pair_coeff      4 8 lj/cut 1.0 ${sigmacp} 1.12
+pair_coeff      4 8 lj/cut 1.0 0.75 1.12
+pair_coeff      5 8 lj/cut ${elipsoncp} ${sigmacp} ${cutoffcp}
+pair_coeff      5 8 lj/cut 1.8 ${sigmacp} ${cutoffcp}
+pair_coeff      5 8 lj/cut 1.8 0.75 ${cutoffcp}
+pair_coeff      5 8 lj/cut 1.8 0.75 2
+pair_coeff      6 8 lj/cut ${elipsoncp} ${sigmacp} ${cutoffcp}
+pair_coeff      6 8 lj/cut 1.8 ${sigmacp} ${cutoffcp}
+pair_coeff      6 8 lj/cut 1.8 0.75 ${cutoffcp}
+pair_coeff      6 8 lj/cut 1.8 0.75 2
+pair_coeff      7 8 lj/cut ${elipsoncp} ${sigmacp} ${cutoffcp}
+pair_coeff      7 8 lj/cut 1.8 ${sigmacp} ${cutoffcp}
+pair_coeff      7 8 lj/cut 1.8 0.75 ${cutoffcp}
+pair_coeff      7 8 lj/cut 1.8 0.75 2
+pair_coeff      8 8 lj/cut ${elipsonpp} ${sigmapp} ${cutoffpp}
+pair_coeff      8 8 lj/cut 1.8 ${sigmapp} ${cutoffpp}
+pair_coeff      8 8 lj/cut 1.8 0.5 ${cutoffpp}
+pair_coeff      8 8 lj/cut 1.8 0.5 2
+pair_modify     tabinner 0.0000000001 shift yes
+
+thermo          2000
+thermo_style    custom time temp pe etotal epair ebond eangle press vol
+thermo_modify   norm no flush yes
+
+#   ----    spherical confinement     ----
+region          nucleus sphere 0.0 0.0 0.0 19.6889370749 side in
+fix             wall all wall/region nucleus lj126 1.0 1.0 1.12
+
+fix             1 all nve
+
+minimize        1.0e-4 1.0e-6 100 1000
+WARNING: Resetting reneighboring criteria during minimization (../min.cpp:168)
+Neighbor list info ...
+  4 neighbor list requests
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 4000, page size: 100000
+  master list distance cutoff = 6.4
+  ghost atom cutoff = 6.4
+  binsize = 3.2 -> bins = 12 12 12
+Memory usage per processor = 3.10624 Mbytes
+Time Temp PotEng TotEng E_pair E_bond E_angle Press Volume 
+           0            0     128746.3     128746.3   -2349.5357    125786.25    5309.5862  -0.12518982    46102.906 
