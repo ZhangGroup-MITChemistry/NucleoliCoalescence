@@ -1,4 +1,4 @@
-# Chromatin Network Retards Droplet Coalescence
+# Chromatin Network Retards Nucleoli Coalescence
  [![bioRxiv shield](https://img.shields.io/badge/bioRxiv-2021.03.02-green.svg?style=flat)](https://www.biorxiv.org/content/10.1101/2021.03.02.433564v1) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 This is the repository of core scripts to set up Molecular Dynamics (MD) simulations detailed in the manuscript "Chromatin Network Retards Droplet Coalescence" [(bioRxiv)](https://www.biorxiv.org/content/10.1101/2021.03.02.433564v1).
