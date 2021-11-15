@@ -1,7 +1,7 @@
 # Chromatin Network Retards Nucleoli Coalescence
  [![bioRxiv shield](https://img.shields.io/badge/bioRxiv-2021.03.02-green.svg?style=flat)](https://www.biorxiv.org/content/10.1101/2021.03.02.433564v1) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This is the repository of core scripts to set up Molecular Dynamics (MD) simulations detailed in the manuscript "Chromatin Network Retards Droplet Coalescence" [(bioRxiv)](https://www.biorxiv.org/content/10.1101/2021.03.02.433564v1).
+This is the repository of core scripts to set up Molecular Dynamics (MD) simulations detailed in the manuscript "Chromatin Network Retards Nucleoli Coalescence" [(bioRxiv)](https://www.biorxiv.org/content/10.1101/2021.03.02.433564v1).
 
 * The first step is to set up the MD simulator Large-scale Atomic/Molecular Massively Parallel Simulator ([LAMMPS](https://lammps.sandia.gov/)), which is an open-source computational package for MD simulation. The standard LAMMPS package (tarball) can be downloaded [here](https://lammps.sandia.gov/tars/) and following the doc of LAMMPS [instructions](https://lammps.sandia.gov/doc/Install_tarball.html) to build the LAMMPS directory. We have been using the version [lammps-17Nov16](https://lammps.sandia.gov/tars/lammps-17Nov16.tar.gz), on which our custom modifications were built.
 
